@@ -9,7 +9,7 @@ def filedow (reqURL):
         req = requests.get(reqURL)
         filename = reqURL.split('/')[-1]
         with open (filename, 'wb') as f:
-            for chunk in req.iter_content(chunk_size=200000):
+            for chunk in req.iter_content(chunk_size=1024):
                 if chunk:
                     f.write(chunk)
         f.close
